@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:UnlockTheMinde.ViewModels"
+             x:Class="UnlockTheMinde.Views.EditQuestionPage"
+             Shell.NavBarIsVisible="True"
+             >
+    
+    <ContentPage.BindingContext>
+        <local:EditQuestionViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+      
+        <RelativeLayout>
+
+            <Label
+                    Text="Edit Question"
+                    TextTransform="Uppercase"
+                    FontAttributes="Bold"
+                    TextColor="#000000"
+                     HorizontalTextAlignment="Center"
+                    FontSize="Large"
+                    Margin="100,0,0,0" 
+                    />
+
+            <ActivityIndicator
+                 IsRunning="{Binding IsBusy}"
+                Color="ForestGreen"/>
+            <Frame
+                BackgroundColor="white"
+                CornerRadius="10"
+                Margin="10,70,0,0"
+                WidthRequest="300"
+                >
+
+                <StackLayout
+                >
+                <StackLayout 
+                >
+                        <Label
+                    Text="Title:"
+                        TextColor="Black"
+                    FontSize="Medium"
+                    />
+                        <Entry
+                        Placeholder="name"
+                        Text="{Binding TempTitle}"
+                            WidthRequest="220"
+                               Margin="0,0,0,0"
+                    IsReadOnly="False"/>
+                    </StackLayout>
+
+                    <StackLayout >
+                        <Label
+                    Text="Question:"
+                        TextColor="Black" 
+                    FontSize="Medium"
+                    />
+                        <Entry
+                        Placeholder="lastname"
+                        Text="{Binding Question}"
+                              WidthRequest="220"
+                    IsReadOnly="False"
+                          />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+            <StackLayout
+                Margin="120,400,0,0">
+                <Button
+                    Text="update"
+                    TextTransform="Uppercase"
+                    TextColor="white"
+                    BackgroundColor="Black"
+                    Command="{Binding UPDATE}"/>
+
+                <Button
+                    Text="Delete"
+                    TextTransform="Uppercase"
+                    TextColor="White"
+                    BackgroundColor="red"
+                    Command="{Binding DELETE}"/>
+            </StackLayout>
+        </RelativeLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

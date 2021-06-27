@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:UnlockTheMinde.ViewModels" 
+             x:DataType="viewmodels:AddQuestionsViewModel"
+             x:Class="UnlockTheMinde.Views.AddQuestionsPage"
+              Shell.NavBarIsVisible="False"
+             IconImageSource="logo"
+             BackgroundColor="WhiteSmoke">
+    
+    <ContentPage.Content>
+        <StackLayout
+           >
+            <Label 
+                Margin="20,20,0,0"
+                   Text="Questions you want answers to?"
+                       FontAttributes="Bold"
+                       TextDecorations="None"
+                       TextTransform="Uppercase"
+                   TextColor="black"
+                   FontSize="Medium"/>
+            <Grid
+                Margin="0,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Frame 
+                    Margin="10,0,10,0"
+                    Grid.Row="1"
+                    CornerRadius="20"
+                    BackgroundColor="WhiteSmoke">
+                    <Editor Grid.Row="1"
+                            x:Name="TitleField"
+                            Placeholder="Title"
+                            MaxLength="50"
+                            TextColor="gray"
+                            Text="{Binding TitleText}"/>
+                </Frame>
+                <Frame
+                            Margin="10,0,10,0"
+                            Grid.Row="2"
+                            CornerRadius="20"
+                            BackgroundColor="WhiteSmoke">
+                    <Editor Grid.Row="1"
+                            x:Name="QsnField"
+                            Placeholder="Question here?"
+                            TextColor="gray"
+                            AutoSize="TextChanges"
+                            Text="{Binding QuestionText}"/>
+                </Frame>
+
+            </Grid>
+            <RelativeLayout
+                Margin="50,60,0,0">
+                <Button
+                Text="Save"
+                TextColor="ForestGreen"
+                FontAttributes="Bold"
+                    BackgroundColor="Black"
+                CornerRadius="20"
+                    Command="{Binding SAVE}"/>
+                
+                <Button
+                Text="Clear"
+                TextColor="ForestGreen"
+                    FontAttributes="Bold"
+                BackgroundColor="black"
+                HorizontalOptions="Center"
+                Margin="150,0,0,0"
+                CornerRadius="20"
+                    Command="{Binding CLEAR}"/>
+                
+            </RelativeLayout>
+
+        </StackLayout>
+  
+    </ContentPage.Content>
+    
+</ContentPage>

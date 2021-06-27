@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:UnlockTheMinde.ViewModels"
+             x:Class="UnlockTheMinde.Views.QuestionsListPage"
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.BindingContext>
+        <local:QuestionsListViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout
+            Margin="10,20,10,0"
+            IsVisible="true">
+
+            <CollectionView
+                Margin="5,0,5,0"
+                ItemsSource="{Binding  QuesnList}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame
+                             BorderColor="black"
+                            BackgroundColor="whitesmoke"
+                            CornerRadius="20"
+                           >
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    NumberOfTapsRequired="1"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:QuestionsListViewModel}},Path=ItemTapped}"
+                                    CommandParameter="{Binding .}
+                                    "/>
+                            </Frame.GestureRecognizers>
+
+                            <StackLayout>
+                                <Label
+                                    
+                                    Text="Title"
+                                    TextColor="black"/>
+                                <Editor
+                                    
+                                    x:Name="TitleLabel"
+                                    Text="{Binding Title}"
+                                    TextColor="Black"
+                                    IsReadOnly="True"/>
+                                <Label
+                                    Text="Question"
+                                    TextColor="black"/>
+                                <Editor
+                                    x:Name="QuestionLabel"
+                                    Text="{Binding Question}"
+                                    TextColor="black"
+                                    IsReadOnly="True"/>
+
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+            <StackLayout
+                x:Name="ButtonLayout"
+                 IsVisible="false"
+                 Margin="0,0,0,0"
+                 HeightRequest="750">
+                <Button
+                    Text="Delete"
+                    TextColor="white"
+                    TextTransform="Uppercase"
+                    FontSize="Medium"
+                    FontAttributes="Bold"
+                    BackgroundColor="red"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+                <Button
+                    Margin="0,20,0,0"
+                    Text="update"
+                    TextTransform="Uppercase"
+                    TextColor="White"
+                    BackgroundColor="Green"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"/>
+
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
