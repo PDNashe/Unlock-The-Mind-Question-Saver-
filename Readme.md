@@ -11,13 +11,12 @@ This Application lets you save Questions that you can search answers to later wh
 - Update a question
 - Delete a question
 
-## 1. Save Question
+### 1. Save Question
 
 <img src="Screeshots/AddQuestion.jpg" width="200">
 
-## 2. View All Questions
+### 2. View All Questions
 <img src="Screeshots/QuestionList.jpg" width="200">
 
-## 3. Update Question
+### 3. Update Question
 <img src="Screeshots/EditQuestion.jpg" width="200">
-
